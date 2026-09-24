@@ -45,7 +45,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="mt-12">
-          <ProjectPreview label={project.title} />
+          <ProjectPreview label={project.title} variant={project.preview} imageSrc={project.previewImage} />
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
@@ -93,10 +93,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
         <div className="mt-16 rounded-[30px] border border-violet-400/20 bg-violet-500/10 p-7 sm:flex sm:items-center sm:justify-between sm:p-9">
           <div>
-            <p className="text-sm font-semibold text-violet-200">Need something similar?</p>
+            <p className="text-sm font-semibold text-violet-200">{project.liveUrl ? 'Explore the live work or discuss a similar build.' : 'Need something similar?'}</p>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">Tell me about the workflow, users and technical constraints. We can scope the right approach before development starts.</p>
           </div>
-          <Link href="/#contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink sm:mt-0">Discuss your project <ArrowUpRight className="h-4 w-4" /></Link>
+          <div className="mt-5 flex flex-wrap gap-3 sm:mt-0">
+            {project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white">View live project <ArrowUpRight className="h-4 w-4" /></a> : null}
+            <Link href="/#contact" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink">Discuss your project <ArrowUpRight className="h-4 w-4" /></Link>
+          </div>
         </div>
       </section>
       <Footer />

@@ -1,3 +1,13 @@
+export type ProjectPreviewVariant =
+  | 'publishing'
+  | 'cms'
+  | 'news'
+  | 'admin'
+  | 'registration'
+  | 'event-admin'
+  | 'mobile-app'
+  | 'seo';
+
 export type Project = {
   slug: string;
   title: string;
@@ -8,19 +18,25 @@ export type Project = {
   features: string[];
   tech: string[];
   confidential?: boolean;
-  screenshot?: string;
+  liveUrl?: string;
+  preview: ProjectPreviewVariant;
+  previewImage?: string;
 };
 
 export const siteConfig = {
   name: 'Tanishka',
   role: 'Full Stack Web Developer',
   email: 'itsmavitanishka@gmail.com',
-  siteUrl: 'https://yourdomain.com',
-  profileImage: '/images/tanishka-profile.png',
+  phone: '+91 93197 60877',
+  phoneHref: 'tel:+919319760877',
+  siteUrl: 'https://tanishka-portfolio-gamma.vercel.app',
+  profileImage: '/images/tanishka-hero-dark.png',
+  aboutImage: '/images/tanishka-about-white.png',
+  workImage: '/images/tanishka-work-standing.png',
   social: {
-    github: 'https://github.com/yourusername',
-    linkedin: 'https://www.linkedin.com/in/yourusername',
-    freelancer: 'https://www.freelancer.com/u/yourusername',
+    github: 'https://github.com/monimavi',
+    linkedin: '#',
+    freelancer: '#',
   },
 };
 
@@ -45,106 +61,224 @@ export const skills = [
 
 export const projects: Project[] = [
   {
-    slug: 'event-management-registration-dashboard',
-    title: 'Event Management & Registration Admin Dashboard',
+    slug: 'industrial-outlook-publishing-platform',
+    title: 'Industrial Outlook — Digital Publishing Website',
+    eyebrow: 'Live Publishing Platform',
+    description:
+      'A content-rich industry media website covering news, reports, interviews, sector pages and editorial content with responsive layouts, CMS/API connectivity and technical SEO.',
+    problem:
+      'A high-volume publishing website needs fast editorial updates, consistent article layouts, clean routing, reliable media handling and strong search/social metadata without making content operations difficult.',
+    solution:
+      'Worked across the public website, content structures and CMS integration to improve responsive publishing flows, article presentation, SEO metadata, routing and day-to-day production reliability.',
+    features: [
+      'Dynamic news, reports and interview pages',
+      'News, E-Desk, Voice of Industry and sector content workflows',
+      'CMS/API-connected publishing',
+      'Meta titles, descriptions, canonical tags and Open Graph metadata',
+      'Responsive article and media layouts',
+      'Hosting, deployment and production troubleshooting',
+    ],
+    tech: ['HTML/CSS', 'JavaScript', 'Strapi CMS', 'REST APIs', 'SEO'],
+    liveUrl: 'https://industrialoutlook.in',
+    preview: 'publishing',
+  },
+  {
+    slug: 'industrial-outlook-custom-cms',
+    title: 'Industrial Outlook — Custom CMS & Admin Panel',
     eyebrow: 'Private / Internal Business Application',
     description:
-      'A centralized operational dashboard for managing exhibitors, visitors, delegates, approvals, passes, stalls, communication workflows and event data from one interface.',
+      'A newsroom-style editorial admin panel for content publishing, media management, SEO controls, quick actions and structured operational workflows.',
     problem:
-      'Event operations can become fragmented when registrations, approvals, passes, stall records and communication are handled across disconnected tools and manual processes.',
+      'The editorial team needed a more controlled and flexible content-management environment capable of supporting publishing, media, SEO and approval workflows from one admin interface.',
     solution:
-      'Built a structured administration workflow that brings registration data, operational statuses, approvals and communication actions into a single management experience.',
+      'Worked on the custom CMS ecosystem and its integration with the public website, including admin workflows, database/API coordination, deployment and production debugging.',
     features: [
-      'Exhibitor, visitor and delegate management',
-      'Approval and status workflows',
-      'QR/pass generation and pass management',
-      'Stall and operational data management',
-      'Email and WhatsApp-oriented workflow support',
-      'Search, filters, reporting and admin actions',
+      'Admin dashboard and structured content management',
+      'News, reports, interviews and voice-of-industry workflows',
+      'Media library, categories, tags and authors management',
+      'SEO fields and publishing controls',
+      'Roles, permissions and approval workflows',
+      'Public website integration and deployment support',
     ],
-    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS', 'REST APIs'],
+    tech: ['Next.js', 'Node.js', 'Tailwind CSS', 'PostgreSQL / Neon', 'Prisma'],
     confidential: true,
+    preview: 'cms',
+    previewImage: '/projects/io-admin-dashboard.png',
   },
   {
-    slug: 'dynamic-news-portal-headless-cms',
-    title: 'Dynamic News Portal & Headless CMS',
-    eyebrow: 'Content Platform',
+    slug: 'construction-chronicle-news-portal',
+    title: 'Construction Chronicle — Dynamic News Portal',
+    eyebrow: 'Live PHP / MySQL Publishing Website',
     description:
-      'A modern news and publishing experience with dynamic articles, categories, SEO metadata, social sharing information and CMS/API-driven content delivery.',
+      'A dynamic construction-industry publication built around PHP/MySQL content delivery, responsive article pages, interviews, search, categories and media-rich editorial publishing.',
     problem:
-      'A content-heavy publication needs editors to publish quickly while keeping article pages structured, searchable, responsive and optimized for discoverability.',
+      'The platform required a practical publishing website that could handle continuously updated articles and editorial content instead of operating as a static brochure website.',
     solution:
-      'Implemented a CMS-connected frontend that separates editorial workflows from presentation while keeping routing, metadata and media handling consistent.',
+      'Developed and managed the frontend, PHP/MySQL content workflows and production behavior needed for article publishing, search, media handling and responsive browsing.',
     features: [
-      'Dynamic article and category pages',
-      'Headless CMS / API integration',
-      'SEO titles, descriptions and canonical structure',
-      'Social sharing metadata',
-      'Responsive media and article layouts',
-      'Editorial content workflow support',
+      'Dynamic article, news and interview pages',
+      'Category-based content browsing',
+      'Search functionality',
+      'Responsive frontend and article layouts',
+      'Image and article-media handling',
+      'SEO-oriented content structure and live deployment',
     ],
-    tech: ['Next.js', 'React', 'JavaScript', 'REST APIs', 'CMS Integration', 'SEO'],
+    tech: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript', 'SEO'],
+    liveUrl: 'https://constructionchronicle.in',
+    preview: 'news',
   },
   {
-    slug: 'conference-registration-payment-system',
-    title: 'Conference Registration & Payment System',
-    eyebrow: 'Transactional Web Application',
-    description:
-      'A registration workflow for conferences covering attendee data, pass selection, pricing calculations, payment handling and admin-side operational management.',
-    problem:
-      'Paid registrations require reliable validation, payment-state tracking, user confirmation and a clear admin view of each attendee and transaction state.',
-    solution:
-      'Created an end-to-end registration flow with structured forms, payment integration, status handling, automated communication and admin management.',
-    features: [
-      'Registration forms and validation',
-      'Pass / registration type selection',
-      'Tax and pricing calculations',
-      'Payment gateway / payment-link workflow',
-      'Payment-status handling',
-      'Confirmation and admin-side management',
-    ],
-    tech: ['PHP', 'MySQL', 'JavaScript', 'Payment Integration', 'REST APIs'],
-  },
-  {
-    slug: 'role-based-business-admin-dashboard',
-    title: 'Role-Based Business Admin Dashboard',
+    slug: 'construction-chronicle-admin-panel',
+    title: 'Construction Chronicle — Custom Admin Panel',
     eyebrow: 'Private / Internal Business Application',
     description:
-      'A practical business dashboard for handling users, forms, approvals, reports and operational workflows with role-aware access and structured admin actions.',
+      'A custom publishing administration system for managing articles, categories, interviews, images, newsletter subscribers and operational content workflows.',
     problem:
-      'Teams need one controlled interface to manage operational records without giving every user unrestricted access to data or actions.',
+      'Editors needed a simple internal interface to create, update and manage publication content without manually changing database records or frontend code.',
     solution:
-      'Designed a modular admin experience with role-based views, CRUD workflows, approval states and reporting-oriented data presentation.',
+      'Built and maintained practical CRUD-based admin workflows connected to the MySQL database, including content, images, categories, interview records and subscriber management.',
     features: [
-      'Role-aware admin access',
-      'User and record management',
-      'Forms and CRUD workflows',
-      'Approval and status actions',
-      'Operational reports',
-      'Responsive dashboard interface',
+      'Article/news CRUD management',
+      'Category and interview management',
+      'Image uploads and article-body media',
+      'Newsletter subscriber management',
+      'Search and content administration',
+      'Database troubleshooting and production fixes',
     ],
-    tech: ['PHP', 'MySQL', 'JavaScript', 'REST APIs', 'Admin Dashboards'],
+    tech: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS', 'Custom CMS'],
     confidential: true,
+    preview: 'admin',
   },
   {
-    slug: 'corporate-business-website',
-    title: 'Corporate / Business Website',
+    slug: 'eps-energy-expo-registration-platform',
+    title: 'EPS Energy Expo — Website, Registration & Payment System',
+    eyebrow: 'Live Event Technology Platform',
+    description:
+      'A conference and exhibition web ecosystem covering event pages, visitor/delegate registration, paid workflows, payment status, automated communication and QR/pass delivery.',
+    problem:
+      'Event registrations need more than a form: attendee data, payment states, approvals, passes and communication all have to stay synchronized during live campaigns.',
+    solution:
+      'Built and managed connected registration and event workflows covering forms, payments, backend/database actions, SMTP communication, passes and production support.',
+    features: [
+      'Visitor and delegate registration flows',
+      'Paid registration and payment-status handling',
+      'Razorpay / payment-link workflows',
+      'GST and registration calculations where required',
+      'Automated email and SMTP workflows',
+      'QR/pass generation and production troubleshooting',
+    ],
+    tech: ['PHP', 'MySQL', 'JavaScript', 'REST APIs', 'Payment Integration', 'SMTP'],
+    liveUrl: 'https://epsenergyexpo.com',
+    preview: 'registration',
+  },
+  {
+    slug: 'eps-expo-event-management-admin',
+    title: 'EPS Expo — Event Management Admin Panel',
+    eyebrow: 'Current / Ongoing Development',
+    description:
+      'A centralized administration system for managing conferences, delegates, visitors, exhibitors, awards, approvals, passes, reporting and event operations.',
+    problem:
+      'Operational teams need a single source of truth for attendee records, approvals, passes, payments and event actions instead of fragmented spreadsheets and manual follow-ups.',
+    solution:
+      'Developing a structured admin workflow that centralizes event data and operational actions while supporting database-backed reporting, approvals, communication and production management.',
+    features: [
+      'Conference, delegate, visitor and exhibitor management',
+      'Registrations, approvals and pass workflows',
+      'Awards, media and expo awards modules',
+      'Payment-related status management',
+      'Admin reporting, filters and production management',
+      'Single-dashboard event operations',
+    ],
+    tech: ['Admin Dashboard', 'PHP', 'MySQL', 'JavaScript', 'REST APIs'],
+    confidential: true,
+    preview: 'event-admin',
+    previewImage: '/projects/eps-admin-dashboard.png',
+  },
+  {
+    slug: 'eps-expo-visitor-exhibitor-app',
+    title: 'EPS Expo — Visitor & Exhibitor Application',
+    eyebrow: 'Current / Ongoing Development',
+    description:
+      'A dedicated event application experience for visitor and exhibitor journeys including digital passes, exhibitor discovery, schedules, lead workflows, QR interactions and meeting-related interfaces.',
+    problem:
+      'Visitors and exhibitors need a focused mobile experience that brings event discovery and operational actions together without making the live event journey complicated.',
+    solution:
+      'Working on the application UI and event workflows with separate visitor/exhibitor experiences while preserving existing backend integrations and live operational behavior.',
+    features: [
+      'Visitor and exhibitor user journeys',
+      'Digital pass and QR interfaces',
+      'Exhibitor listing and detail flows',
+      'Lead / scan-oriented workflows',
+      'Meeting and schedule interfaces',
+      'Responsive event-focused UI and production integration',
+    ],
+    tech: ['Flutter UI', 'REST APIs', 'QR / Pass Systems', 'Event Workflows'],
+    confidential: true,
+    preview: 'mobile-app',
+  },
+  {
+    slug: 'perfect-home-tutor-local-seo',
+    title: 'Perfect Home Tutor — Website & Local SEO System',
+    eyebrow: 'Business Website / Technical SEO',
+    description:
+      'A service website with location-focused landing pages and hands-on technical SEO covering canonicalization, HTTPS, redirects, sitemap, robots, structured content and indexing workflows.',
+    problem:
+      'A local service website needed scalable city and service landing pages while avoiding duplicate URLs, indexing problems and inconsistent technical SEO signals.',
+    solution:
+      'Worked on the PHP website structure and implemented a practical local-SEO foundation with clean URLs, canonical handling, redirects, sitemaps, indexing checks and search-console monitoring.',
+    features: [
+      'City and service landing-page structure',
+      'SEO-friendly URLs and internal linking',
+      'Canonical tags and HTTPS enforcement',
+      'Sitemap.xml and robots.txt management',
+      'Redirects, 404 handling and duplicate URL cleanup',
+      'Google Search Console indexing workflow',
+    ],
+    tech: ['PHP', 'HTML/CSS', 'Technical SEO', 'Search Console', '.htaccess'],
+    preview: 'seo',
+  },
+  {
+    slug: 'perfect-home-tutor-business-website',
+    title: 'Perfect Home Tutor — Corporate / Service Website',
     eyebrow: 'Business Website',
     description:
-      'A responsive business website focused on strong presentation, fast access to information, CMS-manageable content and reliable enquiry workflows.',
+      'A service-oriented website designed to present tutoring services clearly, generate local leads and support enquiry workflows with scalable landing pages and a responsive interface.',
     problem:
-      'Businesses need a credible digital presence that works well across devices and makes it easy for prospects to understand services and get in touch.',
+      'A tutoring business required a simple but conversion-focused web presence that could support location pages, service discovery, mobile responsiveness and lead generation.',
     solution:
-      'Built a clean responsive website structure with reusable sections, CMS-ready content, contact flows and practical SEO foundations.',
+      'Created a practical business website structure with service sections, enquiry-first layouts, trust-building content areas and SEO-ready page architecture for future scale.',
     features: [
-      'Responsive landing and inner pages',
-      'Service and company sections',
-      'CMS-manageable content structure',
-      'Contact / enquiry forms',
-      'SEO-friendly page structure',
-      'Production deployment and maintenance',
+      'Responsive business website pages',
+      'Location and service landing-page structure',
+      'Lead/enquiry-focused content flow',
+      'SEO-friendly page architecture',
+      'Simple content management support',
+      'Optimized mobile browsing experience',
     ],
-    tech: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL', 'CMS Integration'],
+    tech: ['PHP', 'HTML/CSS', 'JavaScript', 'Responsive UI', 'SEO'],
+    preview: 'seo',
+  },
+  {
+    slug: 'tanishka-developer-portfolio',
+    title: 'Tanishka — Personal Developer Portfolio Website',
+    eyebrow: 'Portfolio / Branding Website',
+    description:
+      'A premium portfolio website built to present Tanishka's profile, services, production projects, case studies and contact details in a polished international-style layout.',
+    problem:
+      'A portfolio should do more than list skills — it must look premium, communicate credibility and present both real work and services in a structured, conversion-friendly way.',
+    solution:
+      'Built a responsive portfolio experience using Next.js and Tailwind CSS with premium visual styling, project storytelling, direct contact access and clear personal branding.',
+    features: [
+      'Premium hero and about sections using branded portraits',
+      'Detailed project case studies and tech stacks',
+      'Responsive design for desktop and mobile',
+      'Contact form with direct mail handling',
+      'SEO metadata, sitemap and robots support',
+      'Reusable component-based architecture',
+    ],
+    tech: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive UI', 'SEO'],
+    liveUrl: 'https://tanishka-portfolio-gamma.vercel.app',
+    preview: 'publishing',
   },
 ];
 
@@ -175,15 +309,15 @@ export const services = [
   },
   {
     title: 'Registration Systems',
-    text: 'Registration, approval, attendee, pass and workflow systems for business and event use cases.',
+    text: 'Event, delegate, visitor and application forms with approvals, passes and admin-side workflow control.',
   },
   {
     title: 'Payment Gateway Integration',
-    text: 'Payment-flow implementation, status handling, confirmation and admin-side transaction workflows.',
+    text: 'Payment workflows including pricing logic, GST calculations, status handling and post-payment actions.',
   },
   {
-    title: 'Maintenance & Bug Fixing',
-    text: 'Production debugging, website maintenance, deployment support and practical issue resolution.',
+    title: 'Website Maintenance & Bug Fixing',
+    text: 'Troubleshooting, production debugging, deployment fixes and ongoing improvement of live websites.',
   },
 ];
 

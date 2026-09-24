@@ -10,7 +10,7 @@ export default function About() {
         <Reveal className="relative">
           <div className="relative mx-auto max-w-[420px] overflow-hidden rounded-[32px] bg-white p-2 shadow-soft lg:mx-0">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[27px]">
-              <Image src={siteConfig.profileImage} alt="Tanishka professional portrait" fill className="object-cover object-top" sizes="420px" />
+              <Image src={siteConfig.aboutImage} alt="Tanishka professional portrait" fill className="object-cover object-top" sizes="420px" />
             </div>
           </div>
           <div className="absolute -bottom-5 right-3 max-w-[250px] rounded-2xl bg-slate-950 p-4 text-white shadow-xl sm:right-0">
