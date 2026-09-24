@@ -263,7 +263,7 @@ export const projects: Project[] = [
     title: 'Tanishka — Personal Developer Portfolio Website',
     eyebrow: 'Portfolio / Branding Website',
     description:
-      "A premium portfolio website built to present Tanishka's profile, services, production projects, case studies and contact details in a polished international-style layout.",
+      'A premium portfolio website built to present Tanishka's profile, services, production projects, case studies and contact details in a polished international-style layout.',
     problem:
       'A portfolio should do more than list skills — it must look premium, communicate credibility and present both real work and services in a structured, conversion-friendly way.',
     solution:
