@@ -1,0 +1,4 @@
+IMPORTANT: Open this folder and upload ITS CONTENTS to the ROOT of the GitHub repository.
+Do NOT upload this folder itself and do NOT create a nested tanishka-maxel-clean-root-fix folder.
+Upload: app, components, data, public, package.json, next.config.mjs, next-env.d.ts, postcss.config.js, tailwind.config.js, tsconfig.json, .gitignore, .env.example, README.md.
+Commit message: Fix root files and deploy Maxel portfolio
